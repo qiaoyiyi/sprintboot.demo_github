@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title></title>
+	<!-- 引用路径 -->
+	<!-- <script th:src="@{/static/js/test.js}"></script> -->
+</head>
+<body>
+	
+<div>
+	用户姓名：<input th:id="${user.name}" th:name="${user.name}" th:value="${user.name}"/>
+	<br/>
+	用户年龄：<input th:value="${user.age}"/>
+	<br/>
+	用户生日：<input th:value="${user.birthday}" />
+	<br/>
+	用户生日2：<input th:value="${#dates.format(user.birthday,'yyyy/MM/dd')}" />
+</div>
+
+<div th:object="${user}"><!-- 使用* 代替 user对象 -->
+	用户姓名：<input th:id="*{name}" th:name="*{name}" th:value="*{name}"/>
+	<br/>
+	用户年龄：<input th:value="*{age}"/>
+	<br/>
+	用户生日：<input th:value="*{birthday}" />
+	<br/>
+</div>
+
+text 与 utext <br/>
+<span th:text="${user.desc}">abcdefghijk</span>
+<br/>
+<span th:utext="${user.desc}">bbbbbbbbbb</span>
+<br/>
+<span >啛啛喳喳错错错错错错错错错错错</span>
+<br/>
+<!-- URL 显示网址 -->
+<a href ="www.baidu.com" th:href="@{http://www.imooc.com}" >网站地址</a>
+<br/>
+
+<form th:action="@{/th/postform}" th:object ="${user}" method ="post" th:method="post" >
+ <input type="text" th:field="*{name}" />
+  <input type="text" th:field="*{age}" />
+ <input type="submit" />
+</form>
+
+<br/>
+<!-- 判断标签 -->
+<div th:if="${user.age} == 18">等于十八岁</div>
+<div th:if="${user.age} gt 18">大于十八岁</div>
+<div th:if="${user.age} lt 18">小于于十八岁</div>
+<div th:if="${user.age} ge 18">大等于十八岁</div>
+<div th:if="${user.age} le 18">小等于十八岁</div>
+<br/>
+<!-- 选择标签 -->
+<select>
+	<option>选择框</option>
+	<option th:selected="${user.name eq 'lee'}">lee</option>
+	<option th:selected="${user.name eq 'qiaokai'}">qiaokai</option>
+	<option th:selected="${user.name eq 'imooc'}">imooc</option>
+</select>
+<table>
+	<tr>
+		<th>姓名</th>
+		<th>年龄</th>
+		<th>年龄备注</th>
+		<th>生日</th>
+	</tr>
+	<tr th:each="person:${userList}">
+		<td th:text="${person.name}"></td>
+		<td th:text="${person.age}"></td>
+		<td th:text="${person.age gt 18} ? 大于十八岁: 小于十八岁 ">18岁</td>
+		<td th:text="${#dates.format(person.birthday,'yyyy-MM-dd hh:mm:ss')}"></td>
+	</tr>
+</table>
+
+<!-- https://gitee.com/qiaoyiyi/springbootdemo.git -->
+
+</body>
+</html>
