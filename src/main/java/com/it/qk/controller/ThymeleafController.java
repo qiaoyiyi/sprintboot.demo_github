@@ -1,14 +1,13 @@
-package com.sinosoft.controller;
+package com.it.qk.controller;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.it.qk.bean.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.sinosoft.bean.User;
 
 
 @Controller

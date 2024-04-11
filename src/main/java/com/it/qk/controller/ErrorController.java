@@ -1,10 +1,10 @@
-package com.sinosoft.controller;
+package com.it.qk.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.sinosoft.pojo.DemoJSONResult;
+import com.it.qk.pojo.DemoJSONResult;
 
 
 @Controller

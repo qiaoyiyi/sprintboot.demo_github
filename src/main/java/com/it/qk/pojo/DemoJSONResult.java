@@ -1,4 +1,4 @@
-package com.sinosoft.pojo;
+package com.it.qk.pojo;
 
 import java.util.List;
 

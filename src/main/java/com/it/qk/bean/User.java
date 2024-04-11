@@ -1,4 +1,4 @@
-package com.sinosoft.bean;
+package com.it.qk.bean;
 
 import java.util.Date;
 

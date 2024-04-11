@@ -1,13 +1,12 @@
-package com.sinosoft.exception;
+package com.it.qk.exception;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.it.qk.pojo.DemoJSONResult;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.sinosoft.pojo.DemoJSONResult;
 
 /* 当系统出现异常时会被这个类捕获 */
 //@ControllerAdvice

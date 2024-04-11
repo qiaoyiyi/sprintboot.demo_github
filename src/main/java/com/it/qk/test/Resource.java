@@ -1,4 +1,4 @@
-package com.sinosoft.test;
+package com.it.qk.test;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;

@@ -1,11 +1,11 @@
-package com.sinosoft.controller;
+package com.it.qk.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.sinosoft.test.Resource;
+import com.it.qk.test.Resource;
 
 
 @Controller
