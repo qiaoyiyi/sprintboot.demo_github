@@ -1,6 +1,7 @@
 package com.it.qk.pojo;
 
 import lombok.Data;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * @author qiaokai 1941312688@qq.com
@@ -11,9 +12,24 @@ import lombok.Data;
  */
 @Data
 public class UserPojo {
-    private String id;
+    /**
+     * 用户id
+     */
+    private Integer id;
+    /**
+     * 用户名
+     */
     private String name;
+    /**
+     * 密码
+     */
     private String passwd;
+    /**
+     * 电话
+     */
     private String phone;
+    /**
+     * 备注
+     */
     private String remark;
 }
