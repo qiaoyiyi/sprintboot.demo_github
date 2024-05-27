@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.it.qk</groupId>
-	<artifactId>sprintboot.domea</artifactId>
+	<artifactId>sprintboot.demo_github</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>sprintboot.domea</name>
+	<name>sprintboot.demo_github</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
