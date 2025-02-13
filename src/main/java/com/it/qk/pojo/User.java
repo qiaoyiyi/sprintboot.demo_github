@@ -1,7 +1,11 @@
 package com.it.qk.pojo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.util.Date;
 
 /**
  * @author qiaokai 1941312688@qq.com
@@ -11,6 +15,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * @date 2024/4/15 20:55:20
  */
 @Document(collection = "users")
+@Data
 public class User {
     @Id
     private String id;
@@ -21,35 +26,6 @@ public class User {
 
     private UserPojo user;
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public UserPojo getUser() {
-        return user;
-    }
-
-    public void setUser(UserPojo user) {
-        this.user = user;
-    }
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    private Date birthDay;
 }
