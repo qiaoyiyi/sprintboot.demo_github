@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.it.qk.bean.User;
+import com.it.qk.dto.UserDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,7 +33,7 @@ public class ThymeleafController {
 	 */
 	@RequestMapping("test")
 	public String test(ModelMap map) {
-		User u = new User();
+		UserDTO u = new UserDTO();
 		u.setName("qiaokai");
 		u.setAge(16);
 		u.setPassword("12345678");
@@ -41,34 +41,34 @@ public class ThymeleafController {
 		u.setDesc("<font color ='green'><b>hello<b/></font>");
 		map.addAttribute("user", u);
 		
-		User u1 = new User();
+		UserDTO u1 = new UserDTO();
 		u1.setName("imooc");
 		u1.setAge(19);
 		u1.setPassword("imooc");
 		u1.setBirthday(new Date());
 		u1.setDesc("imooc hello world!!!");
 		
-		User u2 = new User();
+		UserDTO u2 = new UserDTO();
 		u2.setName("qiaoyiyi");
 		u2.setAge(24);
 		u2.setPassword("12345678");
 		u2.setBirthday(new Date());
 		u2.setDesc("hi !!!");
 		
-		List<User> userList = new ArrayList<User>();
-		userList.add(u);
-		userList.add(u1);
-		userList.add(u2);
+		List<UserDTO> userDTOList = new ArrayList<UserDTO>();
+		userDTOList.add(u);
+		userDTOList.add(u1);
+		userDTOList.add(u2);
 		
-		map.addAttribute("userList", userList);
+		map.addAttribute("userList", userDTOList);
 		
 		return "thymeleaf/test" ;
 	}
 	
 	@RequestMapping("postform")
-	public String lform(User user) {
-		System.out.println("姓名："+user.getName());
-		System.out.println("年龄："+user.getAge());
+	public String lform(UserDTO userDTO) {
+		System.out.println("姓名："+ userDTO.getName());
+		System.out.println("年龄："+ userDTO.getAge());
 
 		return "redirect:/th/test" ;
 	}

@@ -15,7 +15,7 @@ public class UserPojo {
     /**
      * 用户id
      */
-    private Integer id;
+    private String id;
     /**
      * 用户名
      */

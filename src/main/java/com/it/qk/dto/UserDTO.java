@@ -1,4 +1,4 @@
-package com.it.qk.bean;
+package com.it.qk.dto;
 
 import java.util.Date;
 
@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-public class User {
+public class UserDTO {
 
 	private String name ;
 	

@@ -1,13 +1,13 @@
 package com.it.qk.service;
 
-import com.it.qk.pojo.User;
+import com.it.qk.pojo.UserMongo;
 
 import java.util.List;
 
 public interface UserMongoService {
 
-    User saveUser(User user);
+    UserMongo saveUser(UserMongo userMongo);
 
-    List<User> getUserByUsername(String username);
+    List<UserMongo> getUserByUsername(String username);
 
 }

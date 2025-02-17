@@ -16,13 +16,9 @@ import java.util.Date;
  */
 @Document(collection = "users")
 @Data
-public class User {
+public class UserMongo {
     @Id
     private String id;
-
-    private String username;
-
-    private String password;
 
     private UserPojo user;
 

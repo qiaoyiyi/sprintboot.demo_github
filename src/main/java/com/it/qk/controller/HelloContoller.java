@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.it.qk.pojo.User;
+import com.it.qk.pojo.UserMongo;
 import com.it.qk.service.UserMongoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.it.qk.test.Resource;
+import com.it.qk.config.OpenResourceProp;
 
 @RestController
 @RequestMapping("hello")
@@ -24,7 +24,7 @@ import com.it.qk.test.Resource;
 public class HelloContoller {
 
 	@Autowired
-	private Resource resource;
+	private OpenResourceProp openResourceProp;
 
 	@javax.annotation.Resource
 	private UserMongoService userMongoService;
@@ -46,18 +46,18 @@ public class HelloContoller {
 	@RequestMapping("/getResource")
 	public Object getResource()
 	{
-		Resource bean = new Resource();
-		BeanUtils.copyProperties(resource, bean);
+		OpenResourceProp bean = new OpenResourceProp();
+		BeanUtils.copyProperties(openResourceProp, bean);
 		return  bean;
 	}
 
 	@RequestMapping("/save/userMongodb")
-	public Map<String,Object> saveUser(@RequestBody User user){
-		log.info("用户信息|{}",user.toString());
-		User saveUser = userMongoService.saveUser(user);
+	public Map<String,Object> saveUser(@RequestBody UserMongo userMongo){
+		log.info("用户信息|{}", userMongo.toString());
+		UserMongo saveUserMongo = userMongoService.saveUser(userMongo);
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss SSS");
 		Map<String,Object> maps = new HashMap<>();
-		maps.put("User", saveUser);
+		maps.put("User", saveUserMongo);
 		maps.put("SimpleDate",sdf.format(new Date()));
 		return maps;
 	}
@@ -65,9 +65,9 @@ public class HelloContoller {
 	@RequestMapping("/query/getUserMongodb")
 	public Map<String,Object> getUser(@RequestParam("username") String username){
 		log.info("用户名称|{}",username);
-		List<User> userByUsername = userMongoService.getUserByUsername(username);
+		List<UserMongo> userMongoByUsername = userMongoService.getUserByUsername(username);
 		Map<String,Object> maps = new HashMap<>();
-		maps.put("UserList", userByUsername);
+		maps.put("UserList", userMongoByUsername);
 		return maps;
 	}
 

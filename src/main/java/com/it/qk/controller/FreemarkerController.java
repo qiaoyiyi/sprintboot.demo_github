@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.it.qk.test.Resource;
+import com.it.qk.config.OpenResourceProp;
 
 
 @Controller
@@ -13,12 +13,12 @@ import com.it.qk.test.Resource;
 public class FreemarkerController {
 
 	@Autowired
-	private Resource resource;
+	private OpenResourceProp openResourceProp;
 	
 	@RequestMapping("index")
 	public String index(ModelMap map)
 	{
-		map.addAttribute("resource", resource) ;
+		map.addAttribute("resource", openResourceProp) ;
 		return "freemarker/index" ;
 	}
 	
